@@ -30529,12 +30529,77 @@ a.ui-button:active, .ui-button:active,
   }
 }
 /*# sourceMappingURL=style.css.map */</style>
-    <style type="text/css">.fancybox-margin{margin-right:15px;}</style></head>
+    <style type="text/css">.fancybox-margin{margin-right:15px;}</style>
+	<style>
+/* Preloader Styles */
+#wedding-preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff9f5; /* Soft warm ivory background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+#wedding-preloader.fade-out {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.preloader-content {
+    text-align: center;
+}
+
+/* Spinning Ring Animation */
+.spinner-ring {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 20px auto;
+    border: 3px solid rgba(212, 163, 89, 0.2);
+    border-top: 3px solid #d4a359; /* Elegant gold accent */
+    border-radius: 50%;
+    animation: spin 1.2s cubic-bezier(0.5, 0.1, 0.4, 0.9) infinite;
+}
+
+.preloader-content h2 {
+    font-family: 'Georgia', serif;
+    font-size: 24px;
+    color: #333333;
+    margin-bottom: 5px;
+    letter-spacing: 1px;
+}
+
+.preloader-content p {
+    font-size: 14px;
+    color: #777777;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+</style>
+	</head>
 
 <body style="">
-
+<div id="wedding-preloader">
+    <div class="preloader-content">
+        <div class="spinner-ring"></div>
+        <h2>Daniel & Sophia</h2>
+        <p>17 October 2026</p>
+    </div>
+</div>
 <!-- start page-wrapper -->
 <div class="page-wrapper">
+
     <!-- start preloader -->
     <div class="preloader" style="display: none;">
         <div class="vertical-centered-box">
@@ -32589,6 +32654,14 @@ new_class_name_elements.forEach((new_class_name_element) => {
 
 })(window.jQuery);
 </script><a href="." class="back-to-top"><i class="ti-arrow-up"></i></a>
-
+<script>
+window.addEventListener('load', function() {
+    const preloader = document.getElementById('wedding-preloader');
+    // Adds a slight delay (0.5s) for a smoother feel before fading out
+    setTimeout(function() {
+        preloader.classList.add('fade-out');
+    }, 500);
+});
+</script>
 </body>
 </html>
